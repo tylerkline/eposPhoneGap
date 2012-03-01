@@ -16,7 +16,7 @@ run(function () {
 		 });*/
 	})();
 
-/*
+
 	// a little inline controller
 	x$("#login_button").on("touchstart", function () {
 		handleLogin()
@@ -30,7 +30,7 @@ run(function () {
 			var data = JSON.parse(this.response);
 		}
 		xhr.send();
-	}*/
+	}
 
 	function setMenuScreen() {
 		x$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
