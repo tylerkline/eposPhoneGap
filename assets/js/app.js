@@ -10,21 +10,19 @@ function handleDeviceReady() {
 	deviceReady = true
 	// hardware version
 	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
-
+	$("#login_email").val("tyler@emaginepos.com")
+	$("#login_email").val("abc")
 }
+
 function handleDocumentReady() {
 	documentReady = true
 	// login button tap
 	$("#login_button").bind("click", handleLogin)
-
 }
 
 function handleLogin() {
 	var email = $("#login_email").val()
-	var password = $("#login_password").val()
-
-	email = "tyler@emaginepos.com"
-	password = "abc"
+	var password = $("#login_email").val()
 
 	// build json payload
 	var temp = {
