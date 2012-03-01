@@ -17,6 +17,7 @@ function handleDeviceReady() {
 function handleDocumentReady() {
 	documentReady = true
 	// login button tap
+	$("#login").show()
 	$("#login_button").bind("click", handleLogin)
 }
 
