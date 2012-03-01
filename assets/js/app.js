@@ -38,7 +38,7 @@ function handleLogin() {
 
 	console.log("doing login: ")
 	console.log(temp)
-
+	showOverlay()
 	$.ajax({
 		type:'POST', // defaults to 'GET'
 		url:'http://192.168.1.31:5150/request', // defaults to window.location
@@ -47,15 +47,18 @@ function handleLogin() {
 		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
 		async:true, // set async flag (true by default)
 		success:function (body) {
+			hideOverlay()
 			if (body.Ok) {
 				sessionToken = body.SessionToken
 				processLogin(body.Account)
 			}
 			else {
+				hideOverlay()
 				showError("There was an error processing your login")
 			}
 		}, // body is a string (or if dataType is 'json', a parsed JSON object)
 		error:function (xhr, type) {
+			hideOverlay()
 			console.log(xhr)
 		} // type is a string ('error' for HTTP errors, 'parsererror' for invalid JSON)
 	})
@@ -72,6 +75,12 @@ function processLogin(account) {
 function showError(message) {
 	$("#account_info").html("")
 	$("#error_message").html(message)
+}
+function showOverlay() {
+	$("#overlay").show()
+}
+function hideOverlay() {
+	$("#overlay").hide()
 }
 
 
