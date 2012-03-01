@@ -94,6 +94,8 @@ fieldset {
 input {
     margin-bottom: 8px;
     font: 18px Helvetica;
-    padding: 4px;
+    padding: 5px;
+    border:2px solid #202020;
+    border-radius: 3px;
 }
 
