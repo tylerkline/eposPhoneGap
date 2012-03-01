@@ -41,7 +41,7 @@ function handleLogin() {
 	showOverlay()
 	$.ajax({
 		type:'POST', // defaults to 'GET'
-		url:'http://192.168.1.31:5150/request', // defaults to window.location
+		url:'http://tyler.emaginepos.com:5150/request', // defaults to window.location
 		data:JSON.stringify(temp), // can be a string, object or result of serializeArray()
 		contentType:"application/json",
 		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
