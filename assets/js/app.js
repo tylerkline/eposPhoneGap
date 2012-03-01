@@ -1,3 +1,5 @@
+$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+
 /*
 function handleLogin() {
 	var xhr = new XMLHttpRequest();
