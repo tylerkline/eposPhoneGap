@@ -4,6 +4,7 @@ body {
     font: 18px Helvetica;
     text-align: center;
     background-image: url('../img/bg-light.jpg');
+    color:#d9d9d9;
 }
 
 #title_bar {

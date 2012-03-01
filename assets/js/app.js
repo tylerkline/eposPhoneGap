@@ -17,7 +17,7 @@ run(function () {
 	})();
 
 	function setMenuScreen() {
-		x$("#my_device").html(device.name + ": " + device.version)
+		x$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 	}
 
 	// a little inline controller
