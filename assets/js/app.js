@@ -41,7 +41,7 @@ function handleLogin() {
 			console.log(body)
 		}, // body is a string (or if dataType is 'json', a parsed JSON object)
 		error:function (xhr, type) {
-			console.log(type)
+			console.log(xhr)
 		} // type is a string ('error' for HTTP errors, 'parsererror' for invalid JSON)
 	})
 }
