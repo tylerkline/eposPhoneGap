@@ -1,4 +1,6 @@
-$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+//alert('here')
+//$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+$("#my_device").html("dude")
 
 /*
 function handleLogin() {
