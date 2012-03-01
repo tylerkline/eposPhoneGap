@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
-	alert( device.name)
 	// hardware version
-	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+	//$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 
 	// login button tap
 	$("#login_button").on("tap", function () {
