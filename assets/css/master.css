@@ -38,8 +38,7 @@ body {
     font-size: 18px;
     font-weight: 200;
     text-shadow: 0 -1px 0 #7E4B0D;
-    height: 40px;
-    line-height: 40px;
+   padding:6px;
     color: #fff;
     text-align: center;
 }
@@ -91,4 +90,7 @@ fieldset {
 
 input {
     margin-bottom: 8px;
+    font: 18px Helvetica;
+    padding:4px;
 }
+
