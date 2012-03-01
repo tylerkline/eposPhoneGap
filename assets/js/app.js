@@ -22,12 +22,16 @@ function handleLogin() {
 	var email = $("#login_email").val()
 	var password = $("#login_password").val()
 
+	email = "tyler@emaginepos.com"
+	password = "abc"
+
 	// build json payload
 	var temp = {
 		Action:"Login",
 		Email:email,
 		Password:password
 	}
+
 	console.log("doing login: ")
 	console.log(temp)
 
@@ -35,7 +39,7 @@ function handleLogin() {
 		type:'POST', // defaults to 'GET'
 		url:'http://192.168.1.31:5150/request', // defaults to window.location
 		data:JSON.stringify(temp), // can be a string, object or result of serializeArray()
-		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
+		dataType:'application/json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
 		async:true, // set async flag (true by default)
 		success:function (body) {
 			console.log(body)
