@@ -1,16 +1,10 @@
-$(document).ready({
-	alert("doc ready")
-
-	$(document).bind("deviceready", hookPhoneGapStuff)
-
+$(document).ready(function(){
 	// login button tap
-	$("#login_button").on("tap", function () {
-		handleLogin()
-	})
+	$("#login_button").tap(handleLogin )
 })
+document.addEventListener("deviceready", hookPhoneGapStuff, false);
 
 function hookPhoneGapStuff() {
-	alert("device ready")
 	// hardware version
 	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 
