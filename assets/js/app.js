@@ -21,10 +21,11 @@ run(function () {
 	}
 
 	// a little inline controller
-	when('#welcome', function () {
-		setMenuScreen()
-	});
-	when('#login_button', function () {
+	x$("#login_button").on("touchstart", function () {
+		handleLogin()
+	})
+
+	function handleLogin() {
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', 'http://tyler.emaginepos.com:5150/test.json');
 		xhr.onload = function (e) {
@@ -32,13 +33,5 @@ run(function () {
 			var data = JSON.parse(this.response);
 		}
 		xhr.send();
-	});
-	when('#save', function () {
-		store.save({
-			key:'config',
-			map:ui('map'),
-			zoom:ui('zoom')
-		});
-		display('#welcome');
-	});
+	}
 });
