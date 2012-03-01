@@ -19,6 +19,7 @@ function handleDocumentReady() {
 }
 
 function handleLogin() {
+	alert("doing login")
 	// build json payload
 	var temp = {
 		Action:"Login",
@@ -33,10 +34,11 @@ function handleLogin() {
 		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
 		async:true, // set async flag (true by default)
 		success:function (body) {
+			console.log(body)
 			alert(body)
 		}, // body is a string (or if dataType is 'json', a parsed JSON object)
 		error:function (xhr, type) {
-			alert('error')
+			console.log("error")
 		} // type is a string ('error' for HTTP errors, 'parsererror' for invalid JSON)
 	})
 }
