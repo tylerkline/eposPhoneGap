@@ -63,6 +63,7 @@ function processLogin(account) {
 	$("<img/>").attr("src", "http://www.gravatar.com/avatar/" + account.EmailHash + "?d=mm&s=110&r=g").appendTo($("#account_info"))
 }
 function showError(message) {
+	$("#account_info").html("")
 	$("#error_message").html(message)
 }
 
