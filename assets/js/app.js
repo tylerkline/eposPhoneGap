@@ -14,7 +14,7 @@ function handleDeviceReady() {
 function handleDocumentReady() {
 	documentReady = true
 	// login button tap
-	$("#login_button").tap(handleLogin)
+	$("#login_button").bind("click", handleLogin)
 
 }
 
@@ -23,8 +23,8 @@ function handleLogin() {
 	// build json payload
 	var temp = {
 		Action:"Login",
-		Email:$("#login_email").value(),
-		Password:$("#login_password").value()
+		Email:$("#login_email").val(),
+		Password:$("#login_password").val()
 	}
 
 	$.ajax({
