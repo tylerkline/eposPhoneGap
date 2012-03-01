@@ -1,5 +1,5 @@
 $(document).bind("deviceready", {
-
+	alert("dr")
 	// hardware version
 	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 
