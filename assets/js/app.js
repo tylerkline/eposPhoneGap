@@ -11,7 +11,6 @@ function handleDeviceReady() {
 	// hardware version
 	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 	$("#login_email").val("tyler@emaginepos.com")
-	$("#login_password").val("abc")
 }
 
 function handleDocumentReady() {
@@ -19,6 +18,11 @@ function handleDocumentReady() {
 	// login button tap
 	$("#login").show()
 	$("#login_button").bind("click", handleLogin)
+	$("#logout_button").bind("click", handleLogout)
+}
+function handleLogout() {
+	$("#login").show()
+	$("#account").hide()
 }
 
 function handleLogin() {
