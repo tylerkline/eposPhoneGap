@@ -1,5 +1,6 @@
 var documentReady = false
 var deviceReady = false
+var sessionToken = undefined
 
 // handle ready events for document and device  (phonegap)
 $(document).ready(handleDocumentReady)
@@ -39,11 +40,17 @@ function handleLogin() {
 		type:'POST', // defaults to 'GET'
 		url:'http://192.168.1.31:5150/request', // defaults to window.location
 		data:JSON.stringify(temp), // can be a string, object or result of serializeArray()
-		contentType: "application/json",
+		contentType:"application/json",
 		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
 		async:true, // set async flag (true by default)
 		success:function (body) {
-			console.log(body)
+			if (body.Ok) {
+				sessionToken = body.SessionToken
+				processLogin(body.Account)
+			}
+			else {
+				showError("There was an error processing your login")
+			}
 		}, // body is a string (or if dataType is 'json', a parsed JSON object)
 		error:function (xhr, type) {
 			console.log(xhr)
@@ -51,5 +58,13 @@ function handleLogin() {
 	})
 }
 
+function processLogin(account) {
+	$("#error_message").html("")
+	$("#account_info").html("")
+	$("<div></div>").html(account.Name).appendTo($("#account_info"))
+}
+function showError(message) {
+	$("#error_message").html(message)
+}
 
 

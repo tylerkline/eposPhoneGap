@@ -99,3 +99,7 @@ input {
     border-radius: 3px;
 }
 
+#error_message{
+    font-weight: bold;
+    color:#ff0000;
+}
