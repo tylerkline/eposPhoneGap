@@ -19,26 +19,29 @@ function handleDocumentReady() {
 }
 
 function handleLogin() {
-	alert("doing login")
+	var email = $("#login_email").val()
+	var password = $("#login_password").val()
+
 	// build json payload
 	var temp = {
 		Action:"Login",
-		Email:$("#login_email").val(),
-		Password:$("#login_password").val()
+		Email:email,
+		Password:password
 	}
+	console.log("doing login: ")
+	console.log(temp)
 
 	$.ajax({
 		type:'POST', // defaults to 'GET'
 		url:'http://192.168.1.31:5150/request', // defaults to window.location
-		data:temp, // can be a string, object or result of serializeArray()
+		data:JSON.stringify(temp), // can be a string, object or result of serializeArray()
 		dataType:'json', // what response type you accept from the server ('json', 'xml', 'html', or 'text')
 		async:true, // set async flag (true by default)
 		success:function (body) {
 			console.log(body)
-			alert(body)
 		}, // body is a string (or if dataType is 'json', a parsed JSON object)
 		error:function (xhr, type) {
-			console.log("error")
+			console.log(type)
 		} // type is a string ('error' for HTTP errors, 'parsererror' for invalid JSON)
 	})
 }
