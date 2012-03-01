@@ -1,7 +1,7 @@
-$(document).bind("deviceready", {
-	alert("dr")
-	// hardware version
-	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+$(document).ready({
+	alert("doc ready")
+
+	$(document).bind("deviceready", hookPhoneGapStuff)
 
 	// login button tap
 	$("#login_button").on("tap", function () {
@@ -9,6 +9,12 @@ $(document).bind("deviceready", {
 	})
 })
 
+function hookPhoneGapStuff() {
+	alert("device ready")
+	// hardware version
+	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+
+}
 function handleLogin() {
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'http://tyler.emaginepos.com:5150/test.json');
