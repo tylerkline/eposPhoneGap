@@ -3,20 +3,27 @@
 <head>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width"/>
 	<title>Managers Application</title>
-	<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="assets/themes/theme-orange.css" type="text/css" />
 	<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-	<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/js/jquery-1.7.1.js"></script>
+	<script src="assets/js/jquery.mobile-1.0.1.min.js"></script>
 	<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<div id="title_bar">emagine<strong>POS</strong> Managers App</div>
+<div data-role="page">
+	<div data-role="header">
+		<div>emagine<strong>POS</strong> Managers App</div>
+	</div>
+	<div data-role="content">
+		<div id="welcome">
+			<input id="login_email" type="text" placeholder="email address"/>
+			<input id="login_password" type="password" placeholder="password"/>
 
-<div id="welcome" class="view">
-	<input id="login_email" type="text" placeholder="email address"/>
-	<input id="login_password" type="password" placeholder="password"/>
-	<div class="app_button" id="login_button">Login</div>
-	<div id="my_device"></div>
+			<button data-role="button" id="login_button">Login</button>
+			<div id="my_device"></div>
+		</div>
+	</div>
+	<div data-role="footer"></div>
 </div>
-
 </body>
 </html>
