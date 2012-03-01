@@ -18,6 +18,13 @@ run(function () {
 
 	function setMenuScreen() {
 		x$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'http://tyler.emaginepos.com:5150/test.json');
+		xhr.onload = function (e) {
+			alert(this.response)
+			var data = JSON.parse(this.response);
+		}
+		xhr.send();
 	}
 
 	// a little inline controller
