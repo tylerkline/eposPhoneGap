@@ -1,9 +1,7 @@
-run(function () {
-	alert("here")
-//alert('here')
-//$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+$(document).ready(function(){
 	$("#my_device").html("dude")
-});
+	$("my_device").html("dude2")
+})
 
 /*
  function handleLogin() {
