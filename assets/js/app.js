@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 	// hardware version
-	//$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+	//
 
 	// login button tap
 	$("#login_button").on("tap", function () {
@@ -17,6 +17,8 @@ function handleLogin() {
 		var data = JSON.parse(this.response);
 	}
 	xhr.send();
+	
+	$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
 }
 
 
