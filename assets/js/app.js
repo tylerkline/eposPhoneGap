@@ -18,6 +18,13 @@ run(function () {
 
 	function setMenuScreen() {
 		x$("#my_device").html("Device: " + device.name + "<br/>Firmware Version: " + device.version)
+	}
+
+	// a little inline controller
+	when('#welcome', function () {
+		setMenuScreen()
+	});
+	when('#login_button', function () {
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', 'http://tyler.emaginepos.com:5150/test.json');
 		xhr.onload = function (e) {
@@ -25,41 +32,6 @@ run(function () {
 			var data = JSON.parse(this.response);
 		}
 		xhr.send();
-	}
-
-	// a little inline controller
-	when('#welcome', function () {
-		setMenuScreen()
-	});
-	when('#settings', function () {
-		// load settings from store and make sure we persist radio buttons.
-		store.get('config', function (saved) {
-			if (saved) {
-				if (saved.map) {
-					x$('input[value=' + saved.map + ']').attr('checked', true);
-				}
-				if (saved.zoom) {
-					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked', true);
-				}
-			}
-		});
-	});
-	when('#map', function () {
-		store.get('config', function (saved) {
-			// construct a gmap str
-			var map = saved ? saved.map || ui('map') : ui('map')
-				, zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-				, path = "http://maps.google.com/maps/api/staticmap?center=";
-
-			navigator.geolocation.getCurrentPosition(function (position) {
-				var location = "" + position.coords.latitude + "," + position.coords.longitude;
-				path += location + "&zoom=" + zoom;
-				path += "&size=250x250&maptype=" + map + "&markers=color:red|label:P|";
-				path += location + "&sensor=false";
-
-				x$('img#static_map').attr('src', path);
-			});
-		});
 	});
 	when('#save', function () {
 		store.save({
