@@ -37,7 +37,7 @@ function handleDocumentReady() {
 	$("#login").show()
 	$("#login_button").bind("click", handleLogin)
 	$("#logout_button").bind("click", handleLogout)
-	configureSocket()
+	$("#socket_button").bind("click", configureSocket)
 }
 
 function handleLogout() {
