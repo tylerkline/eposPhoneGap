@@ -23,6 +23,9 @@ function configureSocket() {
 	p.OnConnectFailed = function(e){console.log(e)} //handleMasterConnectFailed
 	p.OnDisconnect = function(e){console.log(e)} //handleMasterDisconnect
 	p.OnMessage = function(e){console.log(e)} //handleMasterMessage
+	p.OnError = function(e){
+		console.log("ws onerror: " + e )
+	}
 	var Connection = new PosConnection.Connection()
 	Connection.Connect(p)
 
