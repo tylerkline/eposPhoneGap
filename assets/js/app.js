@@ -15,6 +15,7 @@ function handleDeviceReady() {
 
 }
 function configureSocket() {
+	console.log("trying socket")
 	var socket = new WebSocket('ws://192.168.1.31:5150/backofficesocket');
 	console.log(socket)
 
