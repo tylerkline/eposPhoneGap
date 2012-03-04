@@ -2,7 +2,6 @@ var documentReady = false
 var deviceReady = false
 var sessionToken = undefined
 
-
 // handle ready events for document and device  (phonegap)
 $(document).ready(handleDocumentReady)
 document.addEventListener("deviceready", handleDeviceReady, false);
@@ -16,21 +15,48 @@ function handleDeviceReady() {
 
 }
 function configureSocket() {
+	var socket = new WebSocket('ws://192.168.1.31:5150/backofficesocket');
+	console.log(socket)
+
+	// push a message after the connection is established.
+	socket.onopen = function () {
+		console.log("open success")
+		socket.send('Hello World')
+	};
+
+	// alerts message pushed from server
+	socket.onmessage = function (msg) {
+		alert(JSON.stringify(msg));
+	};
+
+	// alert close event
+	socket.onclose = function () {
+		alert('closed');
+	};
+/*
 	var PosConnection = new posconnection()
 	var p = new PosConnection.ConnectionParams()
 	p.URI = "ws://192.168.1.31:5150/backofficesocket"
-	p.OnConnect = function(e){console.log(e)} //handleMasterConnect
-	p.OnConnectFailed = function(e){console.log(e)} //handleMasterConnectFailed
-	p.OnDisconnect = function(e){console.log(e)} //handleMasterDisconnect
-	p.OnMessage = function(e){console.log(e)} //handleMasterMessage
-	p.OnError = function(e){
-		console.log("ws onerror: " + e )
+	p.OnConnect = function (e) {
+		console.log(e)
+	} //handleMasterConnect
+	p.OnConnectFailed = function (e) {
+		console.log(e)
+	} //handleMasterConnectFailed
+	p.OnDisconnect = function (e) {
+		console.log(e)
+	} //handleMasterDisconnect
+	p.OnMessage = function (e) {
+		console.log(e)
+	} //handleMasterMessage
+	p.OnError = function (e) {
+		console.log("ws onerror: " + e)
 	}
 	var Connection = new PosConnection.Connection()
 	Connection.Connect(p)
 
 	//var socket = new WebSocket('ws://tyler.emaginepos.com:8083/backofficesocket');
-
+*/
 }
 
 function handleDocumentReady() {
